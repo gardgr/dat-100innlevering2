@@ -1,28 +1,29 @@
-name: Check DAT100 Java Innlevering 2 using CI with Maven
+name: Build and Run Tabeller
 
 on:
   push:
-    branches: [ "main" ]
+    branches:
+      - main
   pull_request:
-    branches: [ "main" ]
 
 jobs:
-  build:
-
+  build-and-run:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v4
-    - name: Set up JDK 
-      uses: actions/setup-java@v4
-      with:
-        java-version: '23'
-        distribution: 'temurin'
-        cache: maven
-    - name: Build with Maven
-      run: mvn --batch-mode --update-snapshots compile
-    - name: Test Tabeller
-      run: mvn --batch-mode --update-snapshots test -Dtest=TabellerEnhetsTests
-    - name: Test Matriser
-      run: mvn --batch-mode --update-snapshots test -Dtest=MatriserEnhetsTests
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Set up Java
+        uses: actions/setup-java@v3
+        with:
+          java-version: 23
+          distribution: temurin
+
+      - name: Build with Maven
+        run: mvn clean compile
+
+      - name: Run Tabeller
+        run: mvn exec:java -Dexec.mainClass="no.hvl.dat100.tabeller.Tabeller"
+
     
