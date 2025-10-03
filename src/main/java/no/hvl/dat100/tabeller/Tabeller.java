@@ -71,6 +71,33 @@ public class Tabeller {
         reversert[i] = tabell[tabell.length - 1 - i];
     }
     return reversert;
+<<<<<<< Updated upstream
+}
+
+
+// g)
+public static boolean erSortert(int[] tabell) {
+    for (int i = 1; i < tabell.length; i++) {
+        if (tabell[i] < tabell[i - 1]) {
+            return false;
+        }
+    }
+    return true;
+}
+
+
+// h)
+public static int[] settSammen(int[] tabell1, int[] tabell2) {
+    int[] resultat = new int[tabell1.length + tabell2.length];
+    for (int i = 0; i < tabell1.length; i++) {
+        resultat[i] = tabell1[i];
+    }
+    for (int i = 0; i < tabell2.length; i++) {
+        resultat[tabell1.length + i] = tabell2[i];
+    }
+    return resultat;
+=======
+>>>>>>> Stashed changes
 }
 
 
@@ -96,3 +123,4 @@ public static int[] settSammen(int[] tabell1, int[] tabell2) {
     }
     return resultat;
 }
+
