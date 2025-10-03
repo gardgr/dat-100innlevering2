@@ -82,4 +82,28 @@ public class Tabeller {
         }
         return resultat;
     }
+
+    // MAIN METHOD
+    public static void main(String[] args) {
+        int[] tall = {42, 67, 89};
+
+        System.out.println("Skriver ut tabell:");
+        skrivUt(tall);
+
+        System.out.println("Tabell som streng:");
+        System.out.println(tilStreng(tall));
+
+        System.out.println("Summen er: " + summer(tall));
+        System.out.println("Finnes tallet 67? " + finnesTall(tall, 67));
+        System.out.println("Posisjon til tallet 89: " + posisjonTall(tall, 89));
+
+        System.out.println("Reversert tabell:");
+        skrivUt(reverser(tall));
+
+        System.out.println("Er tabellen sortert? " + erSortert(tall));
+
+        int[] andreTall = {1, 2, 3};
+        System.out.println("Setter sammen tabeller:");
+        skrivUt(settSammen(tall, andreTall));
+    }
 }
